@@ -6,4 +6,4 @@ import "./index.css"
 
 const divRoot = document.querySelector("#root");
 
-ReactDom.render(<PrimeraApp />,divRoot);
+ReactDom.render(<PrimeraApp saludos="hola soy isai" />,divRoot);
