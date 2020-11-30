@@ -4,22 +4,28 @@ import PropTypes from "prop-types";
 
 const CounterApp = ({value}) =>{
 
-    const [counter, setCounter ]=useState(0);
+    const [counter, setCounter ]=useState(value);
 
 
 
     // handleAndd
     const handleAdd=(e)=>{
-        setCounter(counter+1);
+        setCounter(counter+e);
+        // setCounter((c)=>c+1);
+    }
+    
+
+    const handleReset=()=>{
+        setCounter(0);
     }
 
     return <> 
             <h1>CounterApp</h1>
             <h1>{counter}</h1>
             {/* <button onClick={()=>handleAdd()}</button>}> */}
-            <button onClick={handleAdd}>
-                +1
-            </button>
+            <button onClick={()=>handleAdd(1)}>+1</button>
+            <button onClick={()=>handleAdd(-1)}>-1</button>
+            <button onClick={handleReset}>0</button>
             </>;
 };
 
@@ -28,7 +34,7 @@ CounterApp.propTypes={
 }
 
 CounterApp.defaultProps = {
-    value: 0,
+    value: 5,
 
 }
 
