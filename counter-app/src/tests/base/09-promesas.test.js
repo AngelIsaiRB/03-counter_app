@@ -9,7 +9,19 @@ describe('pruebas con promesas', () => {
         .then(heroe=>{
             expect(heroe).toBe(heroes[0]);
             done();
-        })
+        });
     });
+
+    test('debete de optener un error si el heroe no existe ', (done) => {
+        const id=10;
+        getHeroeByIdAsync(id)
+        .catch( error=>{
+                expect(error).toBe('No se pudo encontrar el héroe');
+                done();
+            } );
+
+        
+    });
+    
     
 });
