@@ -11,7 +11,7 @@ const PrimeraApp = ({saludos, subtitulo }) =>{
         <>
            
             <h1> {saludos} </h1>
-            <h1> {subtitulo} </h1>
+            <p>{subtitulo}</p>
             
         </>
     );
