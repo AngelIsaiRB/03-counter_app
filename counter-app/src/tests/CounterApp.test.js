@@ -3,9 +3,12 @@ import  { shallow } from 'enzyme';
 import CounterApp from '../CounterApp';
 
 describe('pruebas en el <CounterApp/>', () => {
+    let wrapper;
+    beforeEach(()=>{
+         wrapper =  shallow(<CounterApp />); 
+    });
     
     test('should de regresar el valor predefinido de 10', () => {
-        const wrapper =  shallow(<CounterApp />); 
         expect(wrapper).toMatchSnapshot();
     });
     
@@ -16,6 +19,21 @@ describe('pruebas en el <CounterApp/>', () => {
         expect(textValor).toBe(`${valueI}`);
         
     });
+
+    test('should de incrementar con el boton +1', () => {
+
+       wrapper.find("button").at(0).simulate("click"); 
+       const textValor = wrapper.find("h2").text().trim();
+       expect(textValor).toBe("11")       
+    });
+
+    test('should de decrementar con el boton -1', () => {
+
+       wrapper.find("button" ).at(1).simulate("click");        
+       const textValor = wrapper.find("h2").text().trim();
+       expect(textValor).toBe("9");
+    });
+    
     
 
 });
